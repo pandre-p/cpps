@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:00:15 by ppassos           #+#    #+#             */
-/*   Updated: 2025/08/06 14:06:50 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/09/02 10:54:06 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,28 @@
 # include <iomanip>
 #include <string>
 #include <iostream>
+#include <sstream>
 #include <cctype>
+#include <cstdlib>
 
 class Phonebook
 {
 	private:
 		Contact	contacts[8];
 		int		number_of_contacts;
-		int		oldest_contact;
-		//void format_field(const std::string &field) const;
+		int		newest_contact;
+		void format_for_table(const std::string &field);
 
 	public:
-		Phonebook();
-		~Phonebook();
 
-		void	add_contact(const Contact &contact);
-		//void	search_contact() const;
-		void 	set_contacts_number(int i);
-		//void	display_contact_info(int index) const;
+		void	add_contacts(Contact &contact, int i);
+		void	search_contact();
+		void 	set_contacts_number();
+		Contact create_contacts();
+		void set_variables();
 };
+
+int empty_output(std::string s);
+int not_number(std::string s);
 
 #endif

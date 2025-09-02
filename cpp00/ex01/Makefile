@@ -6,7 +6,7 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 09:25:41 by ppassos           #+#    #+#              #
-#    Updated: 2025/08/04 11:13:20 by ppassos          ###   ########.fr        #
+#    Updated: 2025/08/12 14:39:03 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))

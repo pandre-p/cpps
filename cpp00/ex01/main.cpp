@@ -6,31 +6,48 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:00:46 by ppassos           #+#    #+#             */
-/*   Updated: 2025/08/06 14:08:30 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/09/02 11:34:14 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+int limit_contact(int i)
+{
+	if (i == 8)
+		return(0);
+	return(i);
+}
+
 int main()
 {
 	Phonebook pb;
 	std::string input;
+	int	i = 0;
+	Contact c;
+
 	std::cout << "Welcome to PhoneBook!" << std::endl;
+	pb.set_variables();
 	while(1)
 	{
 		std::cout << "> ";
 		std::getline(std::cin, input);
-		if (input == "ADD")
+		if (std::cin.eof())
+        	break ;
+		else if (input == "ADD")
 		{
-			Contact c = create_contact();
-			pb.add_contact(c);
+			c = pb.create_contacts();
+			if (c.true_failure() == 1)
+				break ;
+			pb.add_contacts(c, i);
+			i++;
+			i = limit_contact(i);
 			std::cout << "Contact added!" << std::endl;
 		}
 		else if(input == "SEARCH")
 		{
-			std::cout << "Contact search!" << std::endl;
-			//pb.search_contact();
+			std::cout << "Contacts search!" << std::endl;
+			pb.search_contact();
 		}
 		else if (input == "EXIT")
 			break ;
