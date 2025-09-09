@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 10:54:19 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 15:31:02 by ppassos          ###   ########.fr       */
+/*   Created: 2025/09/09 16:52:04 by ppassos           #+#    #+#             */
+/*   Updated: 2025/09/09 19:08:22 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HumanB_HPP
+#define HumanB_HPP
+#include "Weapon.hpp"
 
-int main(int ac, char **av)
+class HumanB
 {
-	Harl bot;
-
-	if (ac != 2)
-	{
-		std::cout << "Please select a level" << std::endl;
-		return(0);	
-	}
-	bot.complain(av[1]);
-}
+	private:
+		Weapon *weapon;
+		std::string name;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void setWeapon(Weapon weapon);
+		void attack();
+};
+#endif

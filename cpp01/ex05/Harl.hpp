@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 10:54:19 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 15:31:02 by ppassos          ###   ########.fr       */
+/*   Created: 2025/09/09 14:41:03 by ppassos           #+#    #+#             */
+/*   Updated: 2025/09/09 15:00:03 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(int ac, char **av)
+#include <iomanip>
+#include <string>
+#include <iostream>
+
+class Harl
 {
-	Harl bot;
-
-	if (ac != 2)
-	{
-		std::cout << "Please select a level" << std::endl;
-		return(0);	
-	}
-	bot.complain(av[1]);
-}
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	public:
+		void complain(std::string level);
+};
+#endif

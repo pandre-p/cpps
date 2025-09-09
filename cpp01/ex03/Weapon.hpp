@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 10:54:19 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 15:31:02 by ppassos          ###   ########.fr       */
+/*   Created: 2025/09/09 14:41:03 by ppassos           #+#    #+#             */
+/*   Updated: 2025/09/09 18:15:55 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int main(int ac, char **av)
+#include <iomanip>
+#include <string>
+#include <iostream>
+
+class Weapon
 {
-	Harl bot;
-
-	if (ac != 2)
-	{
-		std::cout << "Please select a level" << std::endl;
-		return(0);	
-	}
-	bot.complain(av[1]);
-}
+	private:
+		std::string type;
+	public:
+		Weapon(std::string type);
+		~Weapon();
+		std::string getType();
+		void setType(std::string type);
+};
+#endif

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 10:54:19 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 15:31:02 by ppassos          ###   ########.fr       */
+/*   Created: 2025/09/09 16:52:12 by ppassos           #+#    #+#             */
+/*   Updated: 2025/09/09 18:11:59 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
-
-int main(int ac, char **av)
+#ifndef HumanA_HPP
+#define HumanA_HPP
+#include "Weapon.hpp"
+class HumanA
 {
-	Harl bot;
-
-	if (ac != 2)
-	{
-		std::cout << "Please select a level" << std::endl;
-		return(0);	
-	}
-	bot.complain(av[1]);
-}
+	private:
+		Weapon &weapon;
+		std::string name;
+	public:
+		HumanA(std::string name, Weapon &weaponType);
+		~HumanA();
+		std::string getWeapon();
+		void setWeapon(std::string weapon);
+		void attack();
+};
+#endif

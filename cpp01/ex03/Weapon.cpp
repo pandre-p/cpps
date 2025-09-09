@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 10:54:19 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 15:31:02 by ppassos          ###   ########.fr       */
+/*   Created: 2025/09/09 16:51:51 by ppassos           #+#    #+#             */
+/*   Updated: 2025/09/09 18:53:05 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Weapon.hpp"
 
-int main(int ac, char **av)
+Weapon::Weapon(std::string type)
 {
-	Harl bot;
+	setType(type);
+	std::cout << "Weapon: " << this->type << "was been created!" << std::endl;
+}
 
-	if (ac != 2)
-	{
-		std::cout << "Please select a level" << std::endl;
-		return(0);	
-	}
-	bot.complain(av[1]);
+Weapon::~Weapon()
+{
+	std::cout << "Weapon: " << this->type << "was been destroyed" << std::endl;
+}
+
+std::string Weapon::getType()
+{
+	return(this->type);
+}
+
+void Weapon::setType(std::string type)
+{
+	this->type = type;
 }
