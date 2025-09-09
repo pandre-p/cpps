@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 16:52:09 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/09 19:09:19 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/09/09 19:12:29 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void HumanB::attack()
 }
 void HumanB::setWeapon(Weapon weapon)
 {
-	this->weapon = weapon; 
+	this->weapon = &weapon; 
 }
