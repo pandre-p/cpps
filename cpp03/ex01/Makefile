@@ -6,7 +6,7 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 08:58:49 by ppassos           #+#    #+#              #
-#    Updated: 2025/10/10 15:17:33 by ppassos          ###   ########.fr        #
+#    Updated: 2025/10/14 16:44:30 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))

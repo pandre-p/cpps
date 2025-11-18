@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:36:50 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/23 14:18:24 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/14 13:59:51 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,64 @@
 
 const int Fixed::_fractionalBits = 8;
 
-Fixed::Fixed() : _rawBits(0) //deflaut
+Fixed::Fixed() : _rawBits(0) 
 {
-	
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	this->_rawBits = other._rawBits;
+	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
 }
 
 Fixed::Fixed(const int num) //int
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_rawBits = num << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float num) // float
 {
+	std::cout << "Float constructor called" << std::endl;
 	this->_rawBits = roundf(num * 256);
 }
 
 Fixed& Fixed::operator= (const Fixed& other)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->_rawBits = other.getRawBits();
 	return(*this);
 }
 
-Fixed Fixed::operator+ (const Fixed& other)
+Fixed Fixed::operator+ (const Fixed& other) const
 {
 	Fixed a;
 	a._rawBits = this->_rawBits + other._rawBits;
 	return(a);
 }
 
-Fixed Fixed::operator- (const Fixed& other)
+Fixed Fixed::operator- (const Fixed& other) const
 {
 	Fixed a;
 	a._rawBits = this->_rawBits - other._rawBits;
 	return(a);
 }
 
-Fixed Fixed::operator* (const Fixed& other)
+Fixed Fixed::operator* (const Fixed& other) const
 {
 	Fixed a;
 	long long temp =(long long)this->_rawBits * other._rawBits;
 	a._rawBits = temp >> _fractionalBits;
 	return(a);
 }
-Fixed Fixed::operator/ (const Fixed& other)
+Fixed Fixed::operator/ (const Fixed& other) const
 {
 	Fixed a;
 	long long temp = ((long long)this->_rawBits << _fractionalBits) / other._rawBits;

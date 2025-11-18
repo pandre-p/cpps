@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:36:50 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/10 17:26:13 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/14 10:03:56 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 const int Fixed::_fractionalBits = 8;
 
-Fixed::Fixed(int v) : _rawBits(v = 0)
+Fixed::Fixed(): _rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 Fixed::~Fixed()
 {
-	std::cout << "was destroyed!" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_rawBits = other._rawBits;
+	*this = other;
 }
 Fixed& Fixed::operator= (const Fixed& other)
 {

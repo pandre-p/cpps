@@ -6,25 +6,25 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:22:56 by ppassos           #+#    #+#             */
-/*   Updated: 2025/10/10 17:52:38 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/14 15:47:13 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): name("Default"), hit_points(10), attack_damage(0), energy_points(10)
+ClapTrap::ClapTrap(): name("Default"), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "Default claptrap was been created!" <<std::endl;
+	std::cout << "Default claptrap was created!" <<std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << this->name << " claptrap was been created!" << std::endl;
+	std::cout << this->name << " claptrap was created!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->name <<" claptrap was been destroyed!" <<std::endl;
+	std::cout << this->name <<" claptrap was destroyed!" <<std::endl;
 }
 
 

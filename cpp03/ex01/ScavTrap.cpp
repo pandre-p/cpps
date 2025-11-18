@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:18:43 by ppassos           #+#    #+#             */
-/*   Updated: 2025/10/10 18:09:10 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/15 18:16:09 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(): ClapTrap("Default ScavTrap")
 	this->hit_points = 100;
 	this->energy_points = 50;
 	this->attack_damage = 20;
-	std::cout << "Default ScavTrap was been created!" <<std::endl;
+	std::cout << "Default ScavTrap was created!" <<std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
@@ -25,12 +25,13 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->hit_points = 100;
 	this->energy_points = 50;
 	this->attack_damage = 20;
-	std::cout << this->name << " ScavTrap was been created!" << std::endl;
+	this->name = name;
+	std::cout << name << " ScavTrap was created!" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << this->name <<" ScavTrap was been destroyed!" <<std::endl;
+	std::cout << this->name <<" ScavTrap was destroyed!" <<std::endl;
 }
 
 
@@ -49,4 +50,23 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
 		this->attack_damage = other.attack_damage;
 	}
 	return (*this);
+}
+
+void ScavTrap::guardGate()
+{
+	std::cout << this->name << " ScavTrap is now in Gate keeper mode" <<std::endl;
+}
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->hit_points <= 0)
+	{
+		std::cout << "ScavTrap " << this->name << " is dead and cannot take damage" << std::endl;
+	}
+	else if(this->energy_points > 0)
+	{
+		std::cout << "ScavTrap " << this->name <<" attacks " << target <<" ,causing " << this->attack_damage << " points of damage!" << std::endl;
+		this->energy_points--;
+	}
+	else
+		std::cout << "No energy points to attack Scavtrap target" << std::endl;
 }

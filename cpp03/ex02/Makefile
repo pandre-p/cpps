@@ -6,17 +6,17 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 08:58:49 by ppassos           #+#    #+#              #
-#    Updated: 2025/09/10 10:43:33 by ppassos          ###   ########.fr        #
+#    Updated: 2025/10/15 14:14:07 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = FragTrap
 
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))

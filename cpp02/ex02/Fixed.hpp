@@ -6,15 +6,13 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:36:39 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/23 14:14:37 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:32:16 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-#include <iomanip>
-#include <string>
 #include <iostream>
 #include <cmath>
 
@@ -32,10 +30,10 @@ class Fixed
 		~Fixed();
 		//A copy assignment operator overload.
 		Fixed& operator= (const Fixed& other);
-		Fixed operator+ (const Fixed& other);
-		Fixed operator- (const Fixed& other);
-		Fixed operator* (const Fixed& other);
-		Fixed operator/ (const Fixed& other);
+		Fixed operator+ (const Fixed& other) const;
+		Fixed operator- (const Fixed& other) const;
+		Fixed operator* (const Fixed& other) const; 
+		Fixed operator/ (const Fixed& other) const;
 		bool operator== (const Fixed& other) const;
 		bool operator!= (const Fixed& other) const;
 		bool operator> (const Fixed& other) const;

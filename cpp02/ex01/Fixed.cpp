@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:36:50 by ppassos           #+#    #+#             */
-/*   Updated: 2025/09/23 10:58:37 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/10/14 10:11:05 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ Fixed::Fixed() : _rawBits(0) //deflaut
 }
 Fixed::~Fixed()
 {
-	std::cout << "was destroyed!" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_rawBits = other._rawBits;
+	*this = other;
 }
 Fixed::Fixed(const int num) //int
 {
