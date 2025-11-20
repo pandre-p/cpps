@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:49 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 19:16:57 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/20 09:05:23 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AFor
 {
 	std::cout << "PresidentialPardonForm parameterized constructor called" << std::endl;
 }
+
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), _target(other._target)
 {
 	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 }
+
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
 	std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
@@ -41,10 +43,12 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	}
 	return *this;
 }
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
+
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 	if (!this->getIsSigned())

@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:53 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 19:14:15 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/20 11:24:03 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+}
+
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+{
+	if (!this->getIsSigned())
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	std::cout << "Brrrrr... Bzzzz... (drilling noises)" << std::endl;
+
+	if (// meter 50/50)
+		std::cout << this->_target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << "The robotomy on " << this->_target << " has failed." << std::endl;
 }

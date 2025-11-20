@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:45 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 19:17:53 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/20 09:00:42 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm &other);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 		~PresidentialPardonForm();
-		execute(const Bureaucrat &executor) const;
+		
+		void execute(const Bureaucrat &executor) const;
 };
 #endif
