@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AAForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:08:31 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 16:29:53 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 10:41:13 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 const char* AForm::FormNotSignedException::what() const throw()
 {
-	return ("Form is not signed!");
+	return ("AForm is not signed!");
 }

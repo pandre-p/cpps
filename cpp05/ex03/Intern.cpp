@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 09:37:24 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 10:48:34 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 11:01:10 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 		{"presidential pardon", &Intern::createPresidentialForm}
 	};
 	
-	for (const auto& formType : formTypes)
+	for (int i = 0; i < 3; ++i)
 	{
-		if (formType.name == formName)
+		if (formTypes[i].name == formName)
 		{
 			std::cout << "Intern creates " << formName << " form." << std::endl;
-			return formType.creator(target);
+			return formTypes[i].creator(target);
 		}
 	}
 	

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include <string>
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	private :
 		const std::string name;
@@ -26,11 +26,11 @@ class Form
 		const int gradeToSign;
 		const int gradeToExecute;
 	public :
-		Form();
-		Form(const std::string& name,  int gradeToSign,  int gradeToExecute);
-		Form(const Form &other);
-		Form &operator=(const Form &other);
-		~Form();
+		AForm();
+		AForm(const std::string& name,  int gradeToSign,  int gradeToExecute);
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		~AForm();
 		
 		const std::string& getName() const;
 		bool getIsSigned() const;
@@ -48,6 +48,6 @@ class Form
 				virtual const char	*what() const throw();
 		};
 };
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& AForm);
 
 #endif

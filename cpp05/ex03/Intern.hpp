@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 09:37:28 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 11:05:21 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 10:54:44 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Intern
 		Intern &operator=(const Intern &other);
 		~Intern();
 
-		AForm* makeForm(const std::string& formName, const std::string& target);
+		AForm* makeForm(const std::string& FormName, const std::string& target);
 		class UnknownFormException : public std::exception
 		{
 			public:

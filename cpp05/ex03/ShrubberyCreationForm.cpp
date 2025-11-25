@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationAForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:04:28 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 09:16:41 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 10:41:29 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-ShrubberyCreationForm: Required grades: sign 145, exec 137
+ShrubberyCreationAForm: Required grades: sign 145, exec 137
 Creates a file <target>_shrubbery in the working directory and writes ASCII trees
 inside it
 */
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShruberryCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShruberryCreationAForm", 145, 137)
 {
 	std::cout <<  "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShruberryCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShruberryCreationAForm", 145, 137), _target(target)
 {
 	std::cout <<  "ShrubberyCreationForm parameterized constructor called" << std::endl;
 }
@@ -53,7 +53,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	std::ofstream outfile(this->_target + "_shrubbery");
+	std::ofstream outfile((this->_target + "_shrubbery").c_str());
 	if (!outfile)
 	{
 		std::cerr << "Error creating file: " << this->_target + "_shrubbery" << std::endl;

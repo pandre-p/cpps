@@ -6,87 +6,61 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 16:37:29 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 11:26:03 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include <iostream>
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+// para testar os 50/50
+//[
+#include <cstdlib>
+#include <ctime>
+//]
+
 
 int main()
 {
+    //[
+    std::srand(std::time(NULL));
+    //]
+    
     try
     {
-        // Criar burocratas
-        Bureaucrat bob("Bob", 50);
-        Bureaucrat alice("Alice", 1);
+        Bureaucrat bob("Bob", 1);
+        Bureaucrat jim("Jim", 150);
 
-        std::cout << bob << std::endl;
-        std::cout << alice << std::endl;
+        std::cout << "\n=== Teste 1: ShrubberyCreationForm ===" << std::endl;
+        ShrubberyCreationForm shrub("home");
+        std::cout << shrub << std::endl;
 
-        // Criar formulários
-        Form formA("FormA", 45, 30);  // precisa de grau 45 para assinar
-        Form formB("FormB", 1, 1);    // precisa de grau 1 para assinar
+        shrub.beSigned(bob);   // Bob assina
+        shrub.execute(bob);    // Bob executa
 
-        std::cout << formA << std::endl;
-        std::cout << formB << std::endl;
+        std::cout << "\n=== Teste 2: RobotomyRequestForm ===" << std::endl;
+        RobotomyRequestForm robot("Bender");
+        robot.beSigned(bob);
+        for (int i = 0; i < 5; ++i)
+            robot.execute(bob);  // Testa várias execuções
 
-        // Bob tenta assinar formA (deve falhar, grade muito baixa)
-        try
-        {
-            formA.beSigned(bob);
-            std::cout << bob.getName() << " assinou " << formA.getName() << std::endl;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Erro: " << bob.getName() << " não conseguiu assinar "
-                      << formA.getName() << " porque: " << e.what() << std::endl;
-        }
+        std::cout << "\n=== Teste 3: PresidentialPardonForm ===" << std::endl;
+        PresidentialPardonForm pardon("Arthur Dent");
+        pardon.beSigned(bob);
+        pardon.execute(bob);
 
-        // Alice tenta assinar formA (deve funcionar)
-        try
-        {
-            formA.beSigned(alice);
-            std::cout << alice.getName() << " assinou " << formA.getName() << std::endl;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << e.what() << std::endl;
-        }
-
-        // Testar incremento/decremento de grade
-        bob.incrementGrade(); // 50 -> 49
-        std::cout << bob << std::endl;
-
-        // Criar formulário inválido (GradeTooHigh)
-        try
-        {
-            Form invalidForm("InvalidForm", 0, 10);
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Não foi possível criar formulário: " << e.what() << std::endl;
-        }
-
-        // Criar formulário inválido (GradeTooLow)
-        try
-        {
-            Form invalidForm2("InvalidForm2", 151, 10);
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Não foi possível criar formulário: " << e.what() << std::endl;
-        }
-
-        // Imprimir estado final
-        std::cout << formA << std::endl;
-        std::cout << formB << std::endl;
+        std::cout << "\n=== Teste 4: Tentativa com grade baixa ===" << std::endl;
+        ShrubberyCreationForm failForm("fail");
+        failForm.beSigned(jim);   // Jim tem grade muito baixa
+        failForm.execute(jim);    // Deve lançar exceção
     }
-    catch (const std::exception &e)
+    catch (std::exception &e)
     {
-        std::cerr << "Erro inesperado: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
 
+    std::cout << "\n=== Fim dos testes ===" << std::endl;
     return 0;
 }

@@ -6,11 +6,11 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 08:58:49 by ppassos           #+#    #+#              #
-#    Updated: 2025/11/20 11:03:19 by ppassos          ###   ########.fr        #
+#    Updated: 2025/11/25 10:58:17 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Form
+NAME = AForm
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror

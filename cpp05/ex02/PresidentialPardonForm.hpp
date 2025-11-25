@@ -6,15 +6,15 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:45 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 09:00:42 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 11:10:34 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-#include "AForm.hpp"
-class PresidentialPardonForm : public AForm
+#include "Form.hpp"
+class PresidentialPardonForm : public Form
 {
 	private:
 		std::string _target;

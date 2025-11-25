@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:04:28 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 09:16:41 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 11:09:58 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ inside it
 */
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShruberryCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShruberryCreationForm", 145, 137)
 {
 	std::cout <<  "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShruberryCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("ShruberryCreationForm", 145, 137), _target(target)
 {
 	std::cout <<  "ShrubberyCreationForm parameterized constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : Form(other)
 {
 	std::cout <<  "ShrubberyCreationForm copy constructor called" << std::endl;
 }
@@ -37,7 +37,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	std::cout <<  "ShrubberyCreationForm copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		AForm::operator=(other);
+		Form::operator=(other);
 	}
 	return *this;
 }
@@ -50,10 +50,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
 	if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
+		throw Form::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
-	std::ofstream outfile(this->_target + "_shrubbery");
+		throw Form::GradeTooLowException();
+	std::ofstream outfile((this->_target + "_shrubbery").c_str());
 	if (!outfile)
 	{
 		std::cerr << "Error creating file: " << this->_target + "_shrubbery" << std::endl;

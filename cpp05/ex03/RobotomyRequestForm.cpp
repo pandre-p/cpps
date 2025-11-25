@@ -6,14 +6,14 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:53 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 11:24:03 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 10:50:52 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 RobotomyRequestForm: Required grades: sign 72, exec 45
-Makes some drilling noises, then informs that <target> has been robotomized
-successfully 50% of the time. Otherwise, it informs that the robotomy failed.
+Makes some drilling noises, then inForms that <target> has been robotomized
+successfully 50% of the time. Otherwise, it inForms that the robotomy failed.
 */
 #include "RobotomyRequestForm.hpp"
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default")
@@ -51,7 +51,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 		throw AForm::GradeTooLowException();
 	std::cout << "Brrrrr... Bzzzz... (drilling noises)" << std::endl;
 
-	if (// meter 50/50)
+	if (rand() % 2)
 		std::cout << this->_target << " has been robotomized successfully!" << std::endl;
 	else
 		std::cout << "The robotomy on " << this->_target << " has failed." << std::endl;

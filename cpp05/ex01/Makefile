@@ -6,16 +6,16 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 08:58:49 by ppassos           #+#    #+#              #
-#    Updated: 2025/11/18 16:49:20 by ppassos          ###   ########.fr        #
+#    Updated: 2025/11/25 10:43:50 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Form
+NAME = AForm
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 

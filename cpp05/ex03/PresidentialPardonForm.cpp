@@ -6,14 +6,14 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:49 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 09:05:23 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 10:52:30 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
 PresidentialPardonForm: Required grades: sign 25, exec 5
-Informs that <target> has been pardoned by Zaphod Beeblebrox
+InForms that <target> has been pardoned by Zaphod Beeblebrox
 
 */
 #include "PresidentialPardonForm.hpp"
