@@ -8,6 +8,7 @@ ScalarConverter::ScalarConverter()
 ScalarConverter::ScalarConverter(const ScalarConverter &other)
 {
      std::cout << "ScalarConverter copy constructor called" << std::endl;
+	*this=other;
 }
 
 ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &)
@@ -132,35 +133,6 @@ void	ScalarConverter::convertFromChar(char c)
 	displayFloat(value);
 	displayDouble(value);
 }
-
-bool	ScalarConverter::isDouble(const std::string &str)
-{
-	size_t	start = 0;
-	bool	hasDot = false;
-	bool	hasDigit = false;
-	if (str.empty())
-		return (false);
-	if (str[0] == '+' || str[0] == '-')
-		start = 1;
-	for (size_t i = start; i < str.length(); i++)
-	{
-		if (str[i] == '.')
-		{
-			if (hasDot)
-				return (false);
-			hasDot = true;
-		} else if (std::isdigit(str[i]))
-		{
-			hasDigit = true;
-		} else
-		{
-			return (false);
-		}
-	}
-	return (hasDigit && hasDot);
-}
-
-
 void	ScalarConverter::convertFromInt(int value)
 {
 	double	doubleValue = static_cast<double>(value);
