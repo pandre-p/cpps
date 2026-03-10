@@ -30,7 +30,33 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &other)
 
 	return (*this);
 }
+void BitcoinExchange::setexrate(std::string line)
+{
+    size_t pos = line.find(",");
+    std::string date = line.substr(0, pos);
+    std::string rate = line.substr(pos + 1);
+    this->_Exrates[date] = std::atof(rate.c_str()); 
+}
 bool	BitcoinExchange::cantloadDatabase(const std::string &filename)
 {
+    std::ifstream file(filename);
+    std::string line;
 
+    if (!file.is_open())
+    {
+        std::cout << "Error opening file" << std::endl;
+        return (0);
+    }
+    if (std::getline(file, line) != "date | value")
+    {
+        std::cout << "Error" << std::endl;
+        return (0);
+    }
+    while (std::getline(file, line))
+    {
+        setexrate(line);
+        std::cout << line << std::endl;
+    }
+    file.close();
+    return(1);
 }

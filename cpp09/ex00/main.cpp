@@ -1,5 +1,5 @@
 #include "BitcoinExchange.hpp"
-
+// para ja so guardo os valores de data.csv e preciso de testar, ainda preciso de a partir dai fazer parsing do outro ficheiro e escrever as coisas ja direitinho buscando a informacao no ficheiro.csv
 int main(int ac, char **av)
 {
     if (ac != 2)

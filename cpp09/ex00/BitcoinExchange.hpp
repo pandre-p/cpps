@@ -15,6 +15,7 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &other);
 		BitcoinExchange	&operator=(const BitcoinExchange &other);
 		
+		void setexrate(std::string line);
 		bool	cantloadDatabase(const std::string &filename); 
 		void	transInputFile(const std::string &filename); 
 };
