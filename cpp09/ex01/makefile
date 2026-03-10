@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 NAME = Array
+=======
+NAME = dizola
+>>>>>>> decf647 (some ccpps changes)
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
+<<<<<<< HEAD
 SRC = main.cpp Span.cpp
+=======
+SRC = main.cpp
+>>>>>>> decf647 (some ccpps changes)
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 

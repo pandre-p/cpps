@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:41 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 16:56:20 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/10 09:29:02 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 	this->grade++;
 }
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+std::ostream	&operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
     os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-    return os;
+    return (os);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
@@ -74,3 +74,8 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low! (minimum grade is 150)");
 }
+/*std::ostream	&operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
+{
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	return (out);
+}*/

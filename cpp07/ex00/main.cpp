@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/06 08:50:32 by ppassos           #+#    #+#             */
+/*   Updated: 2026/03/06 08:50:51 by ppassos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*Implement the following function templates:
 • swap: Swaps the values of two given parameters. Does not return anything.
 • min: Compares the two values passed as parameters and returns the smallest one.

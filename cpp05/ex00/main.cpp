@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 17:50:11 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/10 09:35:22 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int main()
         std::cout << "Depois de e = c: " << e.getName() << ", grade = " << e.getGrade() << "\n";
 
         std::cout << "\nUsando o teu operator<< (método da classe):\n";
-        e << c;
-        c << e;
+        std::cout << e << std::endl;
+        std::cout << c << std::endl;
     }
     catch (std::exception &e) {
         std::cerr << "Exceção capturada: " << e.what() << "\n";

@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:47 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 16:56:05 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/10 09:33:31 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public:
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat &operator=(const Bureaucrat &other);
-	Bureaucrat &operator<<(const Bureaucrat &other);
 	~Bureaucrat();
 
 	std::string const getName() const;

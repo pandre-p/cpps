@@ -6,11 +6,11 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 11:26:03 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/10 10:01:45 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
