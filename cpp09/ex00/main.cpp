@@ -9,8 +9,9 @@ int main(int ac, char **av)
         return (1);
     }
     BitcoinExchange e;
-    if (e.cantloadDatabase("data.csv"))
+    if (!e.cantloadDatabase("data.csv"))
         return (1);
-    e.transInputFile(av[1]);
+    if (e.transInputFile(av[1]))
+        return 1;
     return (0);
 }
