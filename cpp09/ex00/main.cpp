@@ -11,6 +11,7 @@ int main(int ac, char **av)
     BitcoinExchange e;
     if (!e.cantloadDatabase("data.csv"))
         return (1);
+    std::cout << "dataloaded" << std::endl;
     if (e.transInputFile(av[1]))
         return 1;
     return (0);

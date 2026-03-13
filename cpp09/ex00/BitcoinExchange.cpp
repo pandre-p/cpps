@@ -83,13 +83,36 @@ bool parserate(const std::string &rate)
         return (0);
     return (1);
 }
+
+bool	BitcoinExchange::cantloadDatabase(const std::string &filename)
+{
+    std::ifstream file(filename.c_str());
+    std::string line;
+
+    if (!file.is_open())
+    {
+        std::cout << "Error opening file" << std::endl;
+        return (0);
+    }
+    std::getline(file, line);
+    if (line != "date,exchange_rate")
+    {
+        std::cout << "Error" << std::endl;
+        return (0);
+    }
+    while (std::getline(file, line))
+        setexrate(line);
+    file.close();
+    return(1);
+}
+
 bool parseline(std::string line)
 {
     size_t pos = line.find("|");
     if (pos == std::string::npos)
     {
         std::cout << "Error: bad input => " << line << std::endl;
-        return 1;
+        return 0;
     }
     std::string date = line.substr(0, pos - 1);
     std::string rate = line.substr(pos + 2);
@@ -97,12 +120,13 @@ bool parseline(std::string line)
     if (!parsedate(date))
     {
         std::cout << "Error: bad input => " << date << std::endl;
-        return 1;
+        return 0;
     }
     else if (!parserate(rate))
-        return 1;
-    return 0;
+        return 0;
+    return 1;
 }
+
 float BitcoinExchange::get_exrate(std::string date, float rate)
 {
     std::cout << "     -    " << std::endl;
@@ -125,6 +149,7 @@ float BitcoinExchange::get_exrate(std::string date, float rate)
 
     return (rate * it->second);
 }
+
 void BitcoinExchange::transvalues(std::string line)
 {
     size_t pos = line.find("|");
@@ -134,6 +159,7 @@ void BitcoinExchange::transvalues(std::string line)
     std::cout << date << " => " <<  atof(rate.c_str()) << " = " << get_exrate(date, atof(rate.c_str()))  << std::endl; 
     return ;
 }
+
 bool BitcoinExchange::transInputFile(const std::string &filename)
 {
     std::cout << "ola" << std::endl;
@@ -158,31 +184,13 @@ bool BitcoinExchange::transInputFile(const std::string &filename)
             continue ;
         }
         else
+        {
+            std::cout << "transvalues" << std::endl;
             transvalues(line);
+        }
     }
     file.close();
     //std::cout << date << std::endl;
     //std::cout << rate << std::endl;
-    return(1);
-}
-bool	BitcoinExchange::cantloadDatabase(const std::string &filename)
-{
-    std::ifstream file(filename.c_str());
-    std::string line;
-
-    if (!file.is_open())
-    {
-        std::cout << "Error opening file" << std::endl;
-        return (0);
-    }
-    std::getline(file, line);
-    if (line != "date,exchange_rate")
-    {
-        std::cout << "Error" << std::endl;
-        return (0);
-    }
-    while (std::getline(file, line))
-        setexrate(line);
-    file.close();
     return(1);
 }
