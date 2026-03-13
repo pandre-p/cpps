@@ -6,14 +6,9 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 11:27:35 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/13 16:07:36 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "Intern.hpp"
-#include <iostream>
 
 #include "Intern.hpp"
 #include "AForm.hpp"
@@ -24,12 +19,12 @@
 
 int main()
 {
-    std::cout << "=== CPP05 ex03: Teste Intern ===" << std::endl;
+    std::cout << "=== Test Intern ===" << std::endl;
 
     Intern someRandomIntern;
 
     // Teste 1: RobotomyRequestForm
-    std::cout << "\n=== Teste 1: Criar RobotomyRequestForm ===" << std::endl;
+    std::cout << "\n=== Test 1: Create RobotomyRequestForm ===" << std::endl;
     AForm* f1 = NULL;
     try
     {
@@ -44,7 +39,7 @@ int main()
         delete f1;
 
     // Teste 2: ShrubberyCreationForm
-    std::cout << "\n=== Teste 2: Criar ShrubberyCreationForm ===" << std::endl;
+    std::cout << "\n=== Teste 2: Create ShrubberyCreationForm ===" << std::endl;
     AForm* f2 = NULL;
     try
     {
@@ -53,13 +48,13 @@ int main()
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Erro: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
     if (f2)
         delete f2;
 
     // Teste 3: PresidentialPardonForm
-    std::cout << "\n=== Teste 3: Criar PresidentialPardonForm ===" << std::endl;
+    std::cout << "\n=== Teste 3: Create PresidentialPardonForm ===" << std::endl;
     AForm* f3 = NULL;
     try
     {
@@ -68,27 +63,27 @@ int main()
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Erro: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
     if (f3)
         delete f3;
 
     // Teste 4: Formulário inválido
-    std::cout << "\n=== Teste 4: Nome inválido ===" << std::endl;
+    std::cout << "\n=== Test 4: Invalid name ===" << std::endl;
     AForm* f4 = NULL;
     try
     {
-        f4 = someRandomIntern.makeForm("form inexistente", "nada");
+        f4 = someRandomIntern.makeForm("non-existent form", "nothing");
         std::cout << *f4 << std::endl;
     }
     catch (const Intern::UnknownFormException &e)
     {
-        std::cerr << "Erro: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
     if (f4)
         delete f4;
 
-    std::cout << "\n=== Fim dos testes Intern ===" << std::endl;
+    std::cout << "\n=== End of Intern tests ===" << std::endl;
     return 0;
 }
 

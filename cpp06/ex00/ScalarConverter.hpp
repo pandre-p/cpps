@@ -15,11 +15,9 @@
 
 #include <string>
 #include <iostream>
-#include <iomanip>
 #include <limits>
 #include <cmath>
 #include <climits>
-#include <cfloat>
 #include <sstream>
 #include <cctype>
 

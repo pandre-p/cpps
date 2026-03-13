@@ -97,11 +97,11 @@ bool parseline(std::string line)
     if (!parsedate(date))
     {
         std::cout << "Error: bad input => " << date << std::endl;
-        return 0;
+        return 1;
     }
     else if (!parserate(rate))
-        return 0;
-    return 1;
+        return 1;
+    return 0;
 }
 float BitcoinExchange::get_exrate(std::string date, float rate)
 {
@@ -153,7 +153,10 @@ bool BitcoinExchange::transInputFile(const std::string &filename)
     while (std::getline(file, line))
     {
         if (!parseline(line))
+        {  
+            std::cout << "was wrong" << std::endl;
             continue ;
+        }
         else
             transvalues(line);
     }

@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/10 09:53:18 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/13 16:00:06 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ int main()
         try
         {
             FormA.beSigned(bob);
-            std::cout << bob.getName() << " assinou " << FormA.getName() << std::endl;
+            std::cout << bob.getName() << " signed " << FormA.getName() << std::endl;
         }
         catch (const std::exception &e)
         {
-            std::cerr << "Erro: " << bob.getName() << " não conseguiu assinar "
-                      << FormA.getName() << " porque: " << e.what() << std::endl;
+            std::cerr << "Error: " << bob.getName() << " couldn't sign "
+                      << FormA.getName() << " because: " << e.what() << std::endl;
         }
         try
         {
             FormA.beSigned(alice);
-            std::cout << alice.getName() << " assinou " << FormA.getName() << std::endl;
+            std::cout << alice.getName() << " signed " << FormA.getName() << std::endl;
         }
         catch (const std::exception &e)
         {
@@ -55,7 +55,7 @@ int main()
         }
         catch (const std::exception &e)
         {
-            std::cerr << "Não foi possível criar AFormulário: " << e.what() << std::endl;
+            std::cerr << "It was not possible to create the AForm.: " << e.what() << std::endl;
         }
         try
         {
@@ -63,14 +63,14 @@ int main()
         }
         catch (const std::exception &e)
         {
-            std::cerr << "Não foi possível criar AFormulário: " << e.what() << std::endl;
+            std::cerr << "Unable to create AForm: " << e.what() << std::endl;
         }
         std::cout << FormA << std::endl;
         std::cout << FormB << std::endl;
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Erro inesperado: " << e.what() << std::endl;
+        std::cerr << "Unexpected error: " << e.what() << std::endl;
     }
 
     return 0;
