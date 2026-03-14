@@ -6,11 +6,13 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:41 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/18 16:42:58 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:04:40 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
@@ -39,6 +41,19 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
+void 	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name << " signed "<< form.getName() << std::endl;
+	}
+	catch( std::exception& e)
+	{
+		std::cout << name << " couldn't sign "<< form.getName() << " because " << e.what() << std::endl;
+	}
+	
+}
 std::string  const Bureaucrat::getName() const
 {
 	return(this->name);

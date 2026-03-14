@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationAForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:04:28 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 10:41:29 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:46:57 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-ShrubberyCreationAForm: Required grades: sign 145, exec 137
+ShrubberyCreationForm: Required grades: sign 145, exec 137
 Creates a file <target>_shrubbery in the working directory and writes ASCII trees
 inside it
 */
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShruberryCreationAForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShruberryCreationForm", 145, 137)
 {
 	std::cout <<  "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShruberryCreationAForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShruberryCreationForm", 145, 137), _target(target)
 {
 	std::cout <<  "ShrubberyCreationForm parameterized constructor called" << std::endl;
 }
@@ -47,12 +47,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout <<  "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+const std::string	&ShrubberyCreationForm::get_target() const
 {
-	if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+	return(_target);
+}
+
+void ShrubberyCreationForm::execute_action() const
+{
 	std::ofstream outfile((this->_target + "_shrubbery").c_str());
 	if (!outfile)
 	{
@@ -69,4 +70,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 			   "  _ -  | |   -_\n"
 			   "      // \\\\\n";
 	outfile.close();
+}
+
+const char	*ShrubberyCreationForm::FileException::what() const throw()
+{
+	return("Could not create shrubbery file");
 }

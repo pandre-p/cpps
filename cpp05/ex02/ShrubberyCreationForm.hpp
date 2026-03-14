@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:04:32 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/10 10:03:16 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:46:44 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,14 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const std::string& target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 
-		void execute(const Bureaucrat &executor) const;
+		const std::string &get_target()const;
+		virtual void execute_action() const;
+		class FileException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
 };
 #endif

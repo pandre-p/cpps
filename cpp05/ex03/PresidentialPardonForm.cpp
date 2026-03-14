@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:49 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 10:52:30 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:49:28 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const
+
+const std::string	&PresidentialPardonForm::get_target() const
 {
-	if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+	return (_target);
+}
+
+void PresidentialPardonForm::execute_action() const
+{
 	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

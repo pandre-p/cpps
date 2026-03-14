@@ -6,7 +6,7 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/06 08:51:52 by ppassos           #+#    #+#              #
-#    Updated: 2026/03/06 08:51:53 by ppassos          ###   ########.fr        #
+#    Updated: 2026/03/14 17:43:44 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp 
+SRC = main.cpp
 OBJDIR = Objs
 OBJS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 

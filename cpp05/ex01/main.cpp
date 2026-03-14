@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/13 16:00:06 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 14:56:28 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 
 int main()
-{
+/*{
     try
     {
         Bureaucrat bob("Bob", 50);
@@ -28,25 +28,9 @@ int main()
 
         std::cout << FormA << std::endl;
         std::cout << FormB << std::endl;
-        try
-        {
-            FormA.beSigned(bob);
-            std::cout << bob.getName() << " signed " << FormA.getName() << std::endl;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Error: " << bob.getName() << " couldn't sign "
-                      << FormA.getName() << " because: " << e.what() << std::endl;
-        }
-        try
-        {
-            FormA.beSigned(alice);
-            std::cout << alice.getName() << " signed " << FormA.getName() << std::endl;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << e.what() << std::endl;
-        }
+
+        bob.SignForm(FormA);
+        alice.SignForm(FormA);
         bob.incrementGrade(); // 50 -> 49
         std::cout << bob << std::endl;
         try
@@ -71,6 +55,69 @@ int main()
     catch (const std::exception &e)
     {
         std::cerr << "Unexpected error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}*/
+{
+    std::cout << "----- CREATE OBJECTS -----" << std::endl;
+
+    Bureaucrat bob("Bob", 50);
+    Form tax("TaxForm", 45, 30);
+
+    std::cout << bob << std::endl;
+    std::cout << tax << std::endl;
+
+    std::cout << "\n----- TRY SIGN (FAIL) -----" << std::endl;
+
+    bob.signForm(tax);   // grade 50 não pode assinar (precisa 45)
+
+    std::cout << tax << std::endl;
+
+    std::cout << "\n----- STRONGER BUREAUCRAT -----" << std::endl;
+
+    Bureaucrat boss("Boss", 40);
+
+    std::cout << boss << std::endl;
+
+    std::cout << "\n----- TRY SIGN (SUCCESS) -----" << std::endl;
+
+    boss.signForm(tax);
+
+    std::cout << tax << std::endl;
+
+    std::cout << "\n----- TEST beSigned DIRECTLY -----" << std::endl;
+
+    try
+    {
+        Form contract("Contract", 20, 10);
+        Bureaucrat intern("Intern", 100);
+
+        contract.beSigned(intern);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n----- TEST INVALID FORM GRADES -----" << std::endl;
+
+    try
+    {
+        Form invalid("BadForm", 0, 20);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        Form invalid2("BadForm2", 20, 200);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
     return 0;

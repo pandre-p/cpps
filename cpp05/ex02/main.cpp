@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:52 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/13 16:02:25 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:40:54 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 
 int main()
-{
+/*{
     //test 50/50
     std::srand(std::time(NULL));
     try
@@ -58,5 +58,49 @@ int main()
     }
 
     std::cout << "\n=== End of tests ===" << std::endl;
+    return 0;
+}*/
+{
+    std::cout << "----- CREATE BUREAUCRATS -----" << std::endl;
+    Bureaucrat bob("Bob", 145);    // grade baixa
+    Bureaucrat boss("Boss", 1);    // grade alta
+
+    std::cout << bob << std::endl;
+    std::cout << boss << std::endl;
+
+    std::cout << "\n----- CREATE SHRUBBERY FORM -----" << std::endl;
+    ShrubberyCreationForm form("home"); // target = "home"
+    std::cout << form << std::endl;
+
+    std::cout << "\n----- TRY SIGN (FAIL) -----" << std::endl;
+    bob.signForm(form);  // deve falhar, grade 145 < gradeToSign 145?
+
+    std::cout << form << std::endl;
+
+    std::cout << "\n----- TRY SIGN (SUCCESS) -----" << std::endl;
+    boss.signForm(form); // deve passar
+    std::cout << form << std::endl;
+
+    std::cout << "\n----- TRY EXECUTE (FAIL) -----" << std::endl;
+    try
+    {
+        bob.executeForm(form); // grade 145, deve falhar
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n----- TRY EXECUTE (SUCCESS) -----" << std::endl;
+    try
+    {
+        boss.executeForm(form); // grade 1, deve passar
+        std::cout << "ShrubberyCreationForm executed successfully!" << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
     return 0;
 }

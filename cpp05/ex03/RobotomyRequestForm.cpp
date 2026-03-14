@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:53 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 10:50:52 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:48:56 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Makes some drilling noises, then inForms that <target> has been robotomized
 successfully 50% of the time. Otherwise, it inForms that the robotomy failed.
 */
 #include "RobotomyRequestForm.hpp"
+
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default")
 {
 	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
@@ -43,12 +44,13 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+const std::string	&RobotomyRequestForm::get_target() const
 {
-	if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+	return (_target);
+}
+
+void RobotomyRequestForm::execute_action() const
+{
 	std::cout << "Brrrrr... Bzzzz... (drilling noises)" << std::endl;
 
 	if (rand() % 2)

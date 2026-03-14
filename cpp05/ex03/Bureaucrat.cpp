@@ -6,11 +6,13 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:24:41 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/20 11:24:20 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:25:09 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
@@ -37,6 +39,34 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &other)
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat Destructor called" << std::endl;
+}
+
+void 	Bureaucrat::signForm(AForm& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name << " signed "<< form.getName() << std::endl;
+	}
+	catch( std::exception& e)
+	{
+		std::cout << name << " couldn't sign "<< form.getName() << " because " << e.what() << std::endl;
+	}
+	
+}
+
+void Bureaucrat::executeForm(AForm const& form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName()<<std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << name << " couldnt execute "<< form.getName() << " because " << e.what() << std::endl;;
+	}
+	
 }
 
 std::string  const Bureaucrat::getName() const

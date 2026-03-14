@@ -6,12 +6,15 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 08:51:43 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/06 08:51:44 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 17:48:21 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdexcept>
+
+template<typename T>
+Array<T>::Array() : _elements(NULL), _size(0) {}
 
 template<typename T>
 Array<T>::Array(unsigned int n) : _elements(n ? new T[n]() : NULL), _size(n) {}

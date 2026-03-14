@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAForm.cpp                                          :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:08:31 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 10:41:13 by ppassos          ###   ########.fr       */
+/*   Updated: 2025/11/25 11:09:20 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,15 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > this->gradeToSign)
 		throw GradeTooLowException();
 	this->isSigned = true;
+}
+
+void AForm::execute(const Bureaucrat &executor) const
+{
+	if(!isSigned)
+		throw FormNotSignedException();
+	if (executor.getGrade() > gradeToExecute)
+		throw GradeTooLowException();
+	execute_action();
 }
 
 const char* AForm::GradeTooHighException::what() const throw()

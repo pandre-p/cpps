@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:05:56 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/10 10:03:20 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:47:23 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 		~RobotomyRequestForm();
-		void execute(const class Bureaucrat &executor) const;
+		
+		const std::string	&get_target() const;
+		void execute_action() const;
 };
 #endif

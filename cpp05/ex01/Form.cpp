@@ -21,7 +21,7 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : name(
 	std::cout << "Form Parameterized constructor called" << std::endl;
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
-	else if (gradeToSign > 150 || gradeToExecute > 150)
+	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
 }
 Form::Form(const Form &other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)

@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 08:49:25 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/06 08:49:43 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 16:14:14 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main()
 {
     Data data;
-    data.num = 42;
+    data.num = 2147483647;
 
     Data* originalPtr = &data;
 

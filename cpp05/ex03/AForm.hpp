@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAForm.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:08:36 by ppassos           #+#    #+#             */
-/*   Updated: 2025/11/25 10:41:15 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/10 09:59:19 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ class AForm
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		void beSigned(const class Bureaucrat &bureaucrat);
+		void execute(const Bureaucrat &executor) const;
+		// to make pure virtual abstract
+		virtual void	execute_action() const = 0;
+		
 		class GradeTooHighException : public std::exception
 		{
 			public:

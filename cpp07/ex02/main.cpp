@@ -6,14 +6,15 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 08:51:48 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/06 08:51:49 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 17:54:08 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
 
-// ver na escola se consegue compilar direito 
+// ISTO NAO ESTA A RODAR E TEM DE SER REVISTO E TRABALHADO COM MAIS TEMPO
+//NAO ENVIAR ATE O MAIN FUNCIONAR
 
 int	main()
 {

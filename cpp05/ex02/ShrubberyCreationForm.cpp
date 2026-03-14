@@ -6,7 +6,7 @@
 /*   By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:04:28 by ppassos           #+#    #+#             */
-/*   Updated: 2026/03/10 10:04:48 by ppassos          ###   ########.fr       */
+/*   Updated: 2026/03/14 15:46:57 by ppassos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout <<  "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+const std::string	&ShrubberyCreationForm::get_target() const
 {
-	if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+	return(_target);
+}
+
+void ShrubberyCreationForm::execute_action() const
+{
 	std::ofstream outfile((this->_target + "_shrubbery").c_str());
 	if (!outfile)
 	{
@@ -69,4 +70,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 			   "  _ -  | |   -_\n"
 			   "      // \\\\\n";
 	outfile.close();
+}
+
+const char	*ShrubberyCreationForm::FileException::what() const throw()
+{
+	return("Could not create shrubbery file");
 }
