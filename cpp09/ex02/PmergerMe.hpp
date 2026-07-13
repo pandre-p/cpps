@@ -20,6 +20,8 @@ class PmergeMe
     private:
         std::vector<int> _vecData;
         std::deque<int> _deqData;
+        bool straggler;
+        int straggler;
     public:
         PmergeMe();
         PmergeMe(const PmergeMe &);

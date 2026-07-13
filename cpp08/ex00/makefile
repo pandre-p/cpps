@@ -6,7 +6,7 @@
 #    By: ppassos <ppassos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/06 08:53:15 by ppassos           #+#    #+#              #
-#    Updated: 2026/03/14 17:58:16 by ppassos          ###   ########.fr        #
+#    Updated: 2026/07/13 09:29:37 by ppassos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	@$(RM) -r $(NAME)
 	@$(RM) -r $(OBJDIR)
 
 fclean: clean
+	@$(RM) -r $(NAME)
 
 re: fclean all
 

@@ -11,7 +11,7 @@ int is_valid_positive_int(const char *str)
         i++;
     }
     long value = atol(str);
-    if (value <= 0 || value > INT_MAX)
+    if (value <= 0 || value > 2147483647)
         return 0;
     return 1;
 }
@@ -40,10 +40,20 @@ int main(int ac, char **av)
         std::cerr << "Error" << std::endl;
         return (1);
     }
-    
+    PmergeMe a;
+
+    a.fillContainers(av, ac);
+    a.printDeque();
+    std::cout << "____________________________________________" << std::endl;
+    a.printVector();
+
+
+    //funcao
     //dividir em pares
     //ordenar os pares
     //maiores para a direita, menores para a esquerda
-    //inserir os menores elementos na sequencia ordenada
+    //inserir os menores para a esquerda e os maiores para a direita
+    //chamar funcao ate ficar ordenado
+    //se estiver ordenado, verificar se existe um stragler para no final o adicionar
     //guardar o straggler
 }
