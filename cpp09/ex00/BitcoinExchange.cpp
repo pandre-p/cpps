@@ -129,10 +129,10 @@ bool parseline(std::string line)
 
 float BitcoinExchange::get_exrate(std::string date, float rate)
 {
-    std::cout << "     -    " << std::endl;
-    std::cout << "a:" <<date << std::endl;
-    std::cout << "b:" <<rate << std::endl;
-    std::cout << "     -    " << std::endl;
+    //std::cout << "     -    " << std::endl;
+    //std::cout << "a:" <<date << std::endl;
+    //std::cout << "b:" <<rate << std::endl;
+    //std::cout << "     -    " << std::endl;
     std::map<std::string, float>::iterator it;
 
     it = _Exrates.lower_bound(date);
